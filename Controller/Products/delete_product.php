@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../Config/connection.php");
+require("../../Config/connection.php");
 
 if(isset($_GET['code'])) {
     $productCode = $_GET['code'];
@@ -21,6 +21,6 @@ if(isset($_GET['code'])) {
 }
 
 $connection->close();
-header("Location: ../index.php");
+header("Location: ../../Views/products.php");
 exit();
 ?>

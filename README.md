@@ -29,7 +29,7 @@ This project has the following features:
 
 To use this project, you need the following:
 
-- PHP version 5.6.12 or higher.
+- PHP version 8.0.28 or higher.
 - MySQL database.
 - Web server (Apache).
 - Bootstrap library (included).

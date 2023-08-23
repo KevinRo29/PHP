@@ -1,11 +1,12 @@
 <?php
     session_start();
-    require("../Config/connection.php");
+    require("../../Config/connection.php");
 
     $productCode = $_POST['productCode'];
     $productName = $_POST['productName'];
     $productPrice = $_POST['productPrice'];
     $productQuantity = $_POST['productQuantity'];
+    $productCategory = $_POST['productCategory'];
 
     $errors = array();
 
@@ -21,10 +22,10 @@
 
     if (!empty($errors)) {
         $_SESSION['error'] = $errors;
-        header("Location: ../edit_product.php?code=$productCode"); // Vuelve a la página de edición con los errores
+        header("Location: edit_product.php?code=$productCode"); // Vuelve a la página de edición con los errores
         exit();
     } else {
-        $sql = "UPDATE products SET product_name = '$productName', product_price = '$productPrice', product_quantity = '$productQuantity' WHERE product_code = '$productCode'";
+        $sql = "UPDATE products SET product_name = '$productName', product_price = '$productPrice', product_quantity = '$productQuantity', product_category = '$productCategory' WHERE product_code = '$productCode'";
         $result = mysqli_query($connection, $sql);
 
         if ($result == true) {
@@ -33,7 +34,7 @@
             $_SESSION['error'] = "Error updating product";
         }
         
-        header("Location: ../index.php"); // Redirecciona al index después de la actualización exitosa
+        header("Location: ../../Views/products.php");
         exit();
     }
 ?>

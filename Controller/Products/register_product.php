@@ -1,11 +1,13 @@
 <?php
     session_start();
-    require("../Config/connection.php");
+    require("../../Config/connection.php");
 
     $productCode = $_POST['productCode'];
     $productName = $_POST['productName'];
     $productPrice = $_POST['productPrice'];
     $productQuantity = $_POST['productQuantity'];
+    $productCategory = $_POST['productCategory'];
+    $productStatus = '1';
 
     $errors = array();
 
@@ -36,7 +38,7 @@
     if (!empty($errors)) {
         $_SESSION['error'] = $errors;
     } else {
-        $sql = "INSERT INTO products (product_code, product_name, product_price, product_quantity) VALUES ('$productCode', '$productName', '$productPrice', '$productQuantity')";
+        $sql = "INSERT INTO products (product_code, product_name, product_price, product_quantity, product_category, product_status) VALUES ('$productCode', '$productName', '$productPrice', '$productQuantity', '$productCategory', '$productStatus')";
         $result = mysqli_query($connection, $sql);
 
         if($result == true){
@@ -46,7 +48,7 @@
         }
     }
     
-    header("Location: ../index.php");
+    header("Location: ../../Views/products.php");
     exit();
 
 ?>
