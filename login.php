@@ -64,7 +64,7 @@ if (isset($_SESSION['is_active']) && $_SESSION['is_active'] === true) {
                                 </div>
                             </div>
                             <div class="mb-3 text-end">
-                                <a href="#" class="text-decoration-none">Forgot your password?</a>
+                                <a href="Views/recoveryPassword.php" class="text-decoration-none">Forgot your password?</a>
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary rounded-4">Login</button>
